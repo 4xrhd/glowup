@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Order — GlowUp Beauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: { 50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af', 400: '#fb7185', 500: '#f43f5e', 600: '#e11d48' },
+                        cream: { 50: '#fefdf8', 100: '#fef9ec', 200: '#fdf3d7' },
+                        gold: { 400: '#d4a853', 500: '#c9963f', 600: '#b8860b' }
+                    },
+                    fontFamily: { display: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-cream-50">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-rose-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 flex items-center justify-center"><i class="fas fa-spa text-white text-sm"></i></div>
+                    <span class="font-display font-semibold text-xl text-gray-900">GlowUp</span>
+                </a>
+                <a href="index.html#products" class="text-gray-600 hover:text-rose-500 transition-colors text-sm font-medium"><i class="fas fa-arrow-left mr-1"></i> Back to Products</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="fade-in-up">
+            <div id="order-loading" class="text-center py-24"><i class="fas fa-spinner fa-spin text-3xl text-rose-400 mb-4 block"></i><p class="text-gray-500">Loading product...</p></div>
+            <div id="order-content" class="hidden">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-rose-50 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-spa text-rose-400 text-xl"></i></div>
+                        <div>
+                            <p id="order-model-info" class="font-display font-semibold text-gray-900"></p>
+                            <p id="order-price-display" class="text-rose-500 font-bold text-lg"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 mb-8">
+                    <div id="step-indicator-1" class="step-indicator active flex-1"><div class="step-circle">1</div><span class="step-label">Your Details</span></div>
+                    <div class="w-full h-0.5 bg-gray-200 rounded"><div id="progress-bar" class="h-full bg-gradient-to-r from-rose-500 to-rose-600 rounded transition-all duration-300" style="width: 0%"></div></div>
+                    <div id="step-indicator-2" class="step-indicator flex-1"><div class="step-circle">2</div><span class="step-label">Payment</span></div>
+                </div>
+
+                <form id="order-form" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    <input type="hidden" id="order-product-id" name="product_id">
+                    <input type="hidden" id="order-model" name="model">
+                    <input type="hidden" id="order-price" name="price">
+                    <input type="hidden" id="order-id" name="order_id">
+
+                    <div id="step-1">
+                        <h2 class="font-display text-xl font-semibold text-gray-900 mb-1">Your Details</h2>
+                        <p class="text-gray-500 text-sm mb-6">Tell us where to deliver your order</p>
+                        <div class="space-y-4">
+                            <div><label class="block text-gray-700 text-sm font-medium mb-1">Full Name *</label><input type="text" id="order-name" name="name" required placeholder="Enter your full name" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-400 transition-all"></div>
+                            <div><label class="block text-gray-700 text-sm font-medium mb-1">Email Address *</label><input type="email" id="order-email" name="email" required placeholder="your@email.com" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-400 transition-all"></div>
+                            <div><label class="block text-gray-700 text-sm font-medium mb-1">Phone Number *</label><input type="tel" id="order-phone" name="phone" required placeholder="+8801XXXXXXXXX" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-400 transition-all"><p class="text-gray-400 text-xs mt-1">Bangladeshi format: +8801XXXXXXXXX or 01XXXXXXXXX</p></div>
+                            <div><label class="block text-gray-700 text-sm font-medium mb-1">Delivery Address *</label><textarea id="order-address" name="address" required rows="3" placeholder="House, Road, Area, City" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-400 transition-all resize-none"></textarea></div>
+                        </div>
+                        <button type="button" onclick="nextStep()" class="w-full mt-6 py-3.5 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300">Continue to Payment <i class="fas fa-arrow-right ml-2"></i></button>
+                    </div>
+
+                    <div id="step-2" class="hidden">
+                        <h2 class="font-display text-xl font-semibold text-gray-900 mb-1">Payment Method</h2>
+                        <p id="order-id-display" class="text-rose-500 text-sm font-mono mb-6"></p>
+                        <div class="space-y-3 mb-6">
+                            <label class="flex items-center gap-4 p-4 bg-gray-50 border-2 border-transparent rounded-xl cursor-pointer hover:border-rose-200 transition-all has-[:checked]:border-rose-400 has-[:checked]:bg-rose-50">
+                                <input type="radio" name="payment_method" value="bkash" class="accent-rose-500" checked>
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center"><i class="fas fa-mobile-alt text-pink-500"></i></div><div><span class="text-gray-900 font-semibold text-sm">bKash</span><p class="text-gray-500 text-xs">Send Money to <span class="bkash-num">01886556726</span></p></div></div>
+                            </label>
+                            <label class="flex items-center gap-4 p-4 bg-gray-50 border-2 border-transparent rounded-xl cursor-pointer hover:border-rose-200 transition-all has-[:checked]:border-rose-400 has-[:checked]:bg-rose-50">
+                                <input type="radio" name="payment_method" value="nagad" class="accent-rose-500">
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"><i class="fas fa-mobile-alt text-orange-500"></i></div><div><span class="text-gray-900 font-semibold text-sm">Nagad</span><p class="text-gray-500 text-xs">Send Money to <span class="nagad-num">01886556726</span></p></div></div>
+                            </label>
+                            <label class="flex items-center gap-4 p-4 bg-gray-50 border-2 border-transparent rounded-xl cursor-pointer hover:border-rose-200 transition-all has-[:checked]:border-rose-400 has-[:checked]:bg-rose-50">
+                                <input type="radio" name="payment_method" value="bank" class="accent-rose-500">
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"><i class="fas fa-university text-blue-500"></i></div><div><span class="text-gray-900 font-semibold text-sm">Bank Transfer</span><p class="text-gray-500 text-xs">Direct bank transfer</p></div></div>
+                            </label>
+                        </div>
+                        <div id="payment-instructions" class="space-y-4 mb-6">
+                            <div id="bkash-instructions" class="payment-instruction">
+                                <div class="p-4 bg-pink-50 border border-pink-200 rounded-xl"><div class="flex items-center gap-2 mb-2"><i class="fas fa-mobile-alt text-pink-500"></i><p class="text-pink-600 text-sm font-semibold">bKash Payment</p></div><p class="text-gray-600 text-sm">Send Money to <span class="text-gray-900 font-semibold bkash-num">01886556726</span> then enter the Transaction ID below.</p></div>
+                                <div class="mt-3"><label class="block text-gray-700 text-sm font-medium mb-1">bKash Transaction ID *</label><input type="text" id="transaction-id" name="transaction_id" required placeholder="e.g. 9F8G7H6J5K" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-400 transition-all"></div>
+                            </div>
+                            <div id="nagad-instructions" class="payment-instruction hidden">
+                                <div class="p-4 bg-orange-50 border border-orange-200 rounded-xl"><div class="flex items-center gap-2 mb-2"><i class="fas fa-mobile-alt text-orange-500"></i><p class="text-orange-600 text-sm font-semibold">Nagad Payment</p></div><p class="text-gray-600 text-sm">Send Money to <span class="text-gray-900 font-semibold nagad-num">01886556726</span> then enter the Transaction ID below.</p></div>
+                                <div class="mt-3"><label class="block text-gray-700 text-sm font-medium mb-1">Nagad Transaction ID *</label><input type="text" id="nagad-transaction-id" name="nagad_transaction_id" placeholder="e.g. 1A2B3C4D5E" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-400 transition-all"></div>
+                            </div>
+                            <div id="bank-instructions" class="payment-instruction hidden">
+                                <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl"><div class="flex items-center gap-2 mb-3"><i class="fas fa-university text-blue-500"></i><p class="text-blue-600 text-sm font-semibold">Bank Transfer Details</p></div><div class="text-gray-600 text-sm space-y-1"><p><span class="text-gray-400">Bank:</span> <span class="text-gray-900 bank-name">City Bank</span></p><p><span class="text-gray-400">Account Name:</span> <span class="text-gray-900 bank-account">ISHRAQ UDDIN CHOWDHURY</span></p><p><span class="text-gray-400">Account Number:</span> <span class="text-gray-900 font-mono bank-acct-num">2103833949001</span></p><p><span class="text-gray-400">Routing Number:</span> <span class="text-gray-900 font-mono bank-routing">225261732</span></p><p><span class="text-gray-400">Reference:</span> <span id="bank-ref-order-id" class="text-gray-900 font-mono font-semibold"></span> <button type="button" onclick="copyOrderId()" class="text-rose-500 hover:text-rose-600 text-xs ml-2 font-medium">Copy</button></p></div></div>
+                                <div class="mt-3"><label class="block text-gray-700 text-sm font-medium mb-1">Bank Transaction/Reference Number *</label><input type="text" id="bank-transaction-id" name="bank_transaction_id" placeholder="Enter your bank transaction reference" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-400 transition-all"></div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <button type="button" onclick="prevStep()" class="flex-1 py-3.5 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-all duration-300"><i class="fas fa-arrow-left mr-2"></i>Previous</button>
+                            <button type="submit" class="flex-1 py-3.5 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"><i class="fas fa-lock mr-2"></i>Place Pre-Order</button>
+                        </div>
+                    </div>
+                    <div id="order-message" class="mt-4 text-sm hidden"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-gray-500 text-sm">&copy; 2026 GlowUp Beauty. All rights reserved.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            fetch('/track-visit.php', { method: 'POST', body: 'page=order-form' }).catch(() => {});
+            await loadSiteSettings();
+            const res = await fetch('/api/products.php?status=active');
+            const data = await res.json();
+            if (data.success) cmsProducts = data.products;
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug') || '';
+            if (!slug) { window.location.href = 'index.html'; return; }
+            await loadOrderForm(slug);
+            document.getElementById('order-loading').classList.add('hidden');
+            document.getElementById('order-content').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

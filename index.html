@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">GlowUp Beauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: { 50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af', 400: '#fb7185', 500: '#f43f5e', 600: '#e11d48' },
+                        cream: { 50: '#fefdf8', 100: '#fef9ec', 200: '#fdf3d7' },
+                        gold: { 400: '#d4a853', 500: '#c9963f', 600: '#b8860b' }
+                    },
+                    fontFamily: { display: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-cream-50">
+    <div id="announcement-bar" class="bg-rose-500 text-white text-center py-2 text-xs font-medium tracking-wide"></div>
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-rose-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 flex items-center justify-center">
+                        <i class="fas fa-spa text-white text-sm"></i>
+                    </div>
+                    <span id="site-name" class="font-display font-semibold text-xl text-gray-900">GlowUp</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#products" class="text-gray-600 hover:text-rose-500 transition-colors text-sm font-medium">Products</a>
+                    <a href="#about" class="text-gray-600 hover:text-rose-500 transition-colors text-sm font-medium">About</a>
+                    <a href="#contact" class="text-gray-600 hover:text-rose-500 transition-colors text-sm font-medium">Contact</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="admin/" class="text-gray-400 hover:text-gray-600 transition-colors text-sm"><i class="fas fa-lock"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-rose-50 via-cream-50 to-rose-100"></div>
+        <div class="absolute top-20 right-0 w-96 h-96 bg-rose-200/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-gold-400/10 rounded-full blur-3xl"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <span class="inline-block px-4 py-1.5 bg-rose-100 text-rose-600 text-xs font-semibold rounded-full tracking-wide uppercase mb-4">Premium Skincare</span>
+                    <h1 id="hero-title" class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4"></h1>
+                    <p id="hero-subtitle" class="text-gray-600 text-lg mb-8 max-w-lg"></p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#products" class="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300">Shop Now <i class="fas fa-arrow-right ml-2"></i></a>
+                        <a href="#about" class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-gray-700 font-semibold rounded-full border border-gray-200 hover:border-rose-300 hover:text-rose-500 transition-all duration-300">Learn More</a>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block">
+                    <div class="relative w-full h-[500px]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-rose-200 to-rose-300 rounded-3xl transform rotate-3"></div>
+                        <div class="absolute inset-0 bg-white rounded-3xl shadow-xl flex items-center justify-center overflow-hidden">
+                            <div class="text-center p-8">
+                                <div class="w-48 h-48 mx-auto bg-gradient-to-br from-rose-100 to-rose-200 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-pump-soap text-6xl text-rose-400"></i>
+                                </div>
+                                <p class="font-display text-xl font-semibold text-gray-900">GlowUp Collection</p>
+                                <p class="text-gray-500 text-sm mt-1">Premium Skincare Essentials</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-truck text-rose-500 text-sm"></i></div>
+                    <div><p class="text-sm font-semibold text-gray-900">Free Delivery</p><p id="free-delivery-label" class="text-xs text-gray-500">Orders over ৳2,000</p></div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-certificate text-rose-500 text-sm"></i></div>
+                    <div><p class="text-sm font-semibold text-gray-900">100% Authentic</p><p class="text-xs text-gray-500">Genuine products only</p></div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-mobile-alt text-rose-500 text-sm"></i></div>
+                    <div><p class="text-sm font-semibold text-gray-900">bKash / Nagad</p><p class="text-xs text-gray-500">Easy payment</p></div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-undo text-rose-500 text-sm"></i></div>
+                    <div><p class="text-sm font-semibold text-gray-900">Easy Returns</p><p class="text-xs text-gray-500">7-day return policy</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1.5 bg-rose-100 text-rose-600 text-xs font-semibold rounded-full tracking-wide uppercase mb-3">Our Collection</span>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-3">Featured Products</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">Handpicked skincare essentials for your daily beauty routine</p>
+            </div>
+            <div id="products-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="col-span-full text-center py-12 text-gray-400"><i class="fas fa-spinner fa-spin text-2xl mb-3 block"></i>Loading products...</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="w-full h-96 bg-gradient-to-br from-rose-100 to-rose-200 rounded-3xl flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-40 h-40 mx-auto bg-white rounded-full shadow-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-leaf text-5xl text-rose-400"></i>
+                            </div>
+                            <p class="font-display text-xl font-semibold text-gray-900">Natural Beauty</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="inline-block px-4 py-1.5 bg-rose-100 text-rose-600 text-xs font-semibold rounded-full tracking-wide uppercase mb-3">Why GlowUp?</span>
+                    <h2 id="about-title" class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4"></h2>
+                    <p id="about-text" class="text-gray-600 mb-6"></p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0 mt-1"><i class="fas fa-check text-rose-500 text-sm"></i></div>
+                            <div><h4 class="font-semibold text-gray-900">Authentic Products Only</h4><p class="text-gray-500 text-sm">Every product is sourced directly from authorized distributors</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0 mt-1"><i class="fas fa-check text-rose-500 text-sm"></i></div>
+                            <div><h4 class="font-semibold text-gray-900">Skin Expert Approved</h4><p class="text-gray-500 text-sm">Dermatologist recommended formulations for all skin types</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0 mt-1"><i class="fas fa-check text-rose-500 text-sm"></i></div>
+                            <div><h4 class="font-semibold text-gray-900">Cash on Delivery Available</h4><p class="text-gray-500 text-sm">Pay with bKash, Nagad, or bank transfer</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-center text-gray-400 text-xs font-semibold uppercase tracking-widest mb-8">Trusted Brands We Carry</h3>
+            <div class="brand-slider overflow-hidden">
+                <div class="brand-track">
+                    <span class="brand-item">CeraVe</span><span class="brand-item">The Ordinary</span><span class="brand-item">Neutrogena</span><span class="brand-item">Olay</span><span class="brand-item">Garnier</span><span class="brand-item">L'Oreal</span><span class="brand-item">Nivea</span><span class="brand-item">Clinique</span><span class="brand-item">Innisfree</span><span class="brand-item">COSRX</span>
+                </div>
+                <div class="brand-track">
+                    <span class="brand-item">CeraVe</span><span class="brand-item">The Ordinary</span><span class="brand-item">Neutrogena</span><span class="brand-item">Olay</span><span class="brand-item">Garnier</span><span class="brand-item">L'Oreal</span><span class="brand-item">Nivea</span><span class="brand-item">Clinique</span><span class="brand-item">Innisfree</span><span class="brand-item">COSRX</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1.5 bg-rose-100 text-rose-600 text-xs font-semibold rounded-full tracking-wide uppercase mb-3">Reviews</span>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900">What Our Customers Say</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-cream-50 rounded-2xl p-6 border border-rose-50">
+                    <div class="flex items-center gap-1 mb-3"><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i></div>
+                    <p class="text-gray-600 text-sm mb-4">"My skin has never looked this good! The Glow Essentials Kit is perfect for Dhaka weather. Highly recommend!"</p>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-rose-200 flex items-center justify-center"><span class="text-rose-600 font-semibold text-sm">F</span></div><div><p class="font-semibold text-gray-900 text-sm">Fatima A.</p><p class="text-gray-500 text-xs">Dhaka</p></div></div>
+                </div>
+                <div class="bg-cream-50 rounded-2xl p-6 border border-rose-50">
+                    <div class="flex items-center gap-1 mb-3"><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i></div>
+                    <p class="text-gray-600 text-sm mb-4">"Fast delivery and 100% authentic products. Paid via bKash and got my order in 3 days. Amazing service!"</p>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-purple-200 flex items-center justify-center"><span class="text-purple-600 font-semibold text-sm">N</span></div><div><p class="font-semibold text-gray-900 text-sm">Nusrat J.</p><p class="text-gray-500 text-xs">Chittagong</p></div></div>
+                </div>
+                <div class="bg-cream-50 rounded-2xl p-6 border border-rose-50">
+                    <div class="flex items-center gap-1 mb-3"><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star text-amber-400 text-sm"></i><i class="fas fa-star-half-alt text-amber-400 text-sm"></i></div>
+                    <p class="text-gray-600 text-sm mb-4">"Best skincare shop in BD! The prices are fair and the products are genuine. My go-to for all skincare needs."</p>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center"><span class="text-amber-600 font-semibold text-sm">R</span></div><div><p class="font-semibold text-gray-900 text-sm">Rafiq H.</p><p class="text-gray-500 text-xs">Sylhet</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 flex items-center justify-center"><i class="fas fa-spa text-white text-sm"></i></div>
+                        <span id="footer-site-name" class="font-display font-semibold text-xl">GlowUp</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Premium skincare and beauty products delivered across Bangladesh.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#products" class="hover:text-rose-400 transition-colors">Products</a></li>
+                        <li><a href="#about" class="hover:text-rose-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-rose-400 transition-colors">Shipping Policy</a></li>
+                        <li><a href="#" class="hover:text-rose-400 transition-colors">Return Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Payment Methods</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-mobile-alt mr-2 text-rose-400"></i>bKash</li>
+                        <li><i class="fas fa-mobile-alt mr-2 text-orange-400"></i>Nagad</li>
+                        <li><i class="fas fa-university mr-2 text-blue-400"></i>Bank Transfer</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Us</h4>
+                    <ul id="contact-info" class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-phone mr-2 text-rose-400"></i><span id="contact-phone"></span></li>
+                        <li><i class="fas fa-envelope mr-2 text-rose-400"></i><span id="contact-email"></span></li>
+                        <li><i class="fas fa-map-marker-alt mr-2 text-rose-400"></i><span id="contact-address"></span></li>
+                    </ul>
+                    <div class="flex items-center gap-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-rose-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-rose-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-rose-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-500 text-sm">&copy; 2026 GlowUp Beauty. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            fetch('/track-visit.php', { method: 'POST', body: 'page=home' }).catch(() => {});
+            await loadSiteSettings();
+            await loadHomepageProducts();
+        });
+    </script>
+</body>
+</html>

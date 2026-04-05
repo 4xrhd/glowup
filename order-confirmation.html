@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed — GlowUp Beauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: { 50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af', 400: '#fb7185', 500: '#f43f5e', 600: '#e11d48' },
+                        cream: { 50: '#fefdf8', 100: '#fef9ec', 200: '#fdf3d7' },
+                        gold: { 400: '#d4a853', 500: '#c9963f', 600: '#b8860b' }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body bg-cream-50">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-rose-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 flex items-center justify-center">
+                        <i class="fas fa-spa text-white text-sm"></i>
+                    </div>
+                    <span class="font-display font-semibold text-xl text-gray-900">GlowUp</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+        <div class="fade-in-up">
+            <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+                <!-- Success Header -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 md:p-12 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center shadow-lg shadow-green-500/20">
+                        <i class="fas fa-check text-white text-3xl"></i>
+                    </div>
+                    <h1 class="font-display text-3xl font-bold text-gray-900 mb-2">Order Confirmed!</h1>
+                    <p class="text-gray-600">Thank you for your order. We'll deliver beauty to your doorstep!</p>
+                </div>
+
+                <!-- Order Details -->
+                <div class="p-6 md:p-8">
+                    <div id="order-summary" class="mb-6"></div>
+
+                    <div id="bank-instructions" class="hidden mb-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i class="fas fa-university text-blue-500"></i>
+                            <p class="text-blue-600 text-sm font-semibold">Bank Transfer Instructions</p>
+                        </div>
+                        <div class="text-gray-600 text-sm space-y-1">
+                            <p><span class="text-gray-400">Bank:</span> <span class="text-gray-900">City Bank</span></p>
+                            <p><span class="text-gray-400">Account Name:</span> <span class="text-gray-900">ISHRAQ UDDIN CHOWDHURY</span></p>
+                            <p><span class="text-gray-400">Account Number:</span> <span class="text-gray-900 font-mono">2103833949001</span></p>
+                            <p><span class="text-gray-400">Routing Number:</span> <span class="text-gray-900 font-mono">225261732</span></p>
+                            <p><span class="text-gray-400">Reference:</span> <span id="bank-ref" class="text-gray-900 font-mono font-semibold"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Next Steps -->
+                    <div class="bg-cream-50 rounded-xl p-4 mb-6">
+                        <h3 class="font-semibold text-gray-900 text-sm mb-2">What happens next?</h3>
+                        <ul class="text-gray-600 text-sm space-y-1.5">
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5 text-xs"></i> You'll receive a confirmation email shortly</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5 text-xs"></i> We'll verify your payment within 24 hours</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5 text-xs"></i> Your order will be shipped within 2-3 business days</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-0.5 text-xs"></i> Free delivery across Bangladesh</li>
+                        </ul>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="window.print()" class="flex-1 py-3.5 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-all duration-300">
+                            <i class="fas fa-print mr-2"></i>Print Receipt
+                        </button>
+                        <a href="index.html" class="flex-1 py-3.5 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold rounded-xl text-center hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300">
+                            <i class="fas fa-home mr-2"></i>Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mt-6 text-center">
+                <p class="text-gray-500 text-sm mb-2">Need help? Contact us anytime</p>
+                <div class="flex items-center justify-center gap-6">
+                    <a href="tel:+8801886556726" class="text-rose-500 hover:text-rose-600 font-medium text-sm">
+                        <i class="fas fa-phone mr-1"></i>+880 1886-556726
+                    </a>
+                    <a href="mailto:info@glowup.bd" class="text-rose-500 hover:text-rose-600 font-medium text-sm">
+                        <i class="fas fa-envelope mr-1"></i>info@glowup.bd
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-500 text-sm">&copy; 2026 GlowUp Beauty. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/track-visit.php', { method: 'POST', body: 'page=order-confirmation' }).catch(() => {});
+            const orderData = sessionStorage.getItem('orderData');
+            if (!orderData) {
+                window.location.href = 'index.html';
+            } else {
+                renderOrderConfirmation(JSON.parse(orderData));
+            }
+        });
+
+        function renderOrderConfirmation(data) {
+            const summary = document.getElementById('order-summary');
+            const paymentLabel = data.payment_method === 'bkash' ? 'bKash' : data.payment_method === 'nagad' ? 'Nagad' : 'Bank Transfer';
+
+            summary.innerHTML = `
+                <div class="bg-gray-50 rounded-xl p-5 space-y-3">
+                    <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                        <span class="text-gray-500 text-sm">Order ID</span>
+                        <span class="text-rose-500 font-mono font-semibold">${data.order_id}</span>
+                    </div>
+                    <div class="flex justify-between"><span class="text-gray-500 text-sm">Product</span><span class="text-gray-900 font-medium">${data.model}</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500 text-sm">Price</span><span class="text-rose-500 font-bold">${data.price}</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500 text-sm">Name</span><span class="text-gray-900">${data.name}</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500 text-sm">Email</span><span class="text-gray-900">${data.email}</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500 text-sm">Phone</span><span class="text-gray-900">${data.phone}</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500 text-sm">Address</span><span class="text-gray-900 text-right max-w-[50%]">${data.address}</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500 text-sm">Payment</span><span class="text-gray-900">${paymentLabel}</span></div>
+                    ${data.transaction_id ? `<div class="flex justify-between"><span class="text-gray-500 text-sm">Transaction ID</span><span class="text-gray-900 font-mono">${data.transaction_id}</span></div>` : ''}
+                </div>
+            `;
+
+            if (data.payment_method === 'bank') {
+                document.getElementById('bank-instructions').classList.remove('hidden');
+                document.getElementById('bank-ref').textContent = data.order_id;
+            }
+        }
+    </script>
+</body>
+</html>
