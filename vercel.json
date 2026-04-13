@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'Build complete'",
+  "devCommand": "php -S localhost:3000 -t .",
+  "installCommand": "echo 'No dependencies to install'",
+  "framework": "php",
+  "env": {
+    "DB_HOST": "@db_host",
+    "DB_USER": "@db_user",
+    "DB_PASSWORD": "@db_password",
+    "DB_NAME": "@db_name"
+  },
+  "functions": {
+    "api/**/*.php": {
+      "runtime": "php-8.3"
+    },
+    "admin/api/**/*.php": {
+      "runtime": "php-8.3"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.php"
+    },
+    {
+      "src": "/admin/api/(.*)",
+      "dest": "/admin/api/$1.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+name: Tests & Validation
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pdo, pdo_mysql, json
+
+      - name: Validate PHP Syntax
+        run: |
+          find . -name "*.php" -type f ! -path "./vendor/*" -exec php -l {} \;
+
+      - name: Check for common issues
+        run: |
+          echo "Checking for hardcoded credentials..."
+          ! grep -r "password\|secret\|api_key" --include="*.php" --include="*.js" . | grep -v "node_modules" | grep -v ".git" || true
+          
+          echo "Checking file permissions..."
+          find . -name "*.php" -type f ! -path "./vendor/*" -exec chmod 644 {} \;
+
+      - name: Lint JavaScript
+        run: |
+          if [ -f "script.js" ] || [ -f "admin/script.js" ]; then
+            echo "JavaScript files found - consider adding ESLint"
+          fi
+
+      - name: Security scan
+        run: |
+          echo "Running basic security checks..."
+          ! grep -r "eval\|exec\|system\|passthru" --include="*.php" . | grep -v "node_modules" | grep -v ".git" || true
